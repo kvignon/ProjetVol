@@ -11,9 +11,10 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<!-- Active les annotations MVC (@Controller, @RequestMapping, ...) -->
-	<mvc:annotation-driven/>
+	<mvc:annotation-driven validator="validator"/>
 
-	<context:component-scan base-package="aubay.formation.web" />
+	
+	<context:component-scan base-package="vol.controller" />
 	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
@@ -22,6 +23,27 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	<!-- Indique que le text specifié viendra d'un fichier text -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
 	
-
+	<!-- 	Indication que la langue de base est le francais -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="fr" />
+	</bean>
+	
+	<!-- Indique que l'on pourra specifier la langue dans l'url avec ?lang= -->
+	<mvc:interceptors>
+		<bean id="interceptor"
+			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="lang" />
+		</bean>
+	</mvc:interceptors>
+	
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		  <property name="validationMessageSource" ref="messageSource" />
+	</bean>
 </beans>

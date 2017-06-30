@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="tpFormation-web-1.0-SNAPSHOT">
+    <wb-module deploy-name="vol-persistence-web-1.0-SNAPSHOT">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module archiveName="tpFormation-spring-tx-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tpspring/tpspring">
+        <dependent-module archiveName="vols-persistence-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/vols-persistence/vols-persistence">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="context-root" value="tpFormation-web"/>
-        <property name="java-output-path" value="/vol-persistance-web/target/classes"/>
+        <property name="context-root" value="vol-persistence-web"/>
+        <property name="java-output-path" value="/vol-persistence-web/target/classes"/>
     </wb-module>
 </project-modules>
